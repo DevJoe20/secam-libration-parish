@@ -1,11 +1,10 @@
-
 "use client";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Play, CalendarDays } from "lucide-react";
+import { Play } from "lucide-react";
 
 const slides = [
   {
@@ -63,20 +62,26 @@ function Hero() {
                   backgroundImage: `url(${slide.image})`,
                 }}
               >
-                {/* DARK OVERLAY */}
-                <div className="absolute inset-0 bg-[#07111e]/20" />
+                {/* LIGHTER DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/15" />
 
-                {/* GRADIENT OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050b14]/70 via-[#07111e]/50 to-[#050b14]/70" />
+                {/* SOFTER GRADIENT OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/20 to-black/35" />
 
-                {/* HERO CONTENT */}
+                {/* HERO CONTENT WITH TEXT SHADOW FOR HIGH READABILITY */}
                 <div className="relative z-10 mx-auto w-full max-w-[750px] text-center text-white">
 
-                  <h1 className="mx-auto mb-5 max-w-[700px] font-serif text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[58px]">
+                  <h1 
+                    className="mx-auto mb-5 max-w-[700px] font-serif text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[58px]"
+                    style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)" }}
+                  >
                     {slide.title}
                   </h1>
 
-                  <p className="mx-auto mb-8 max-w-[600px] text-sm font-medium leading-relaxed text-white sm:text-base md:text-[15px]">
+                  <p 
+                    className="mx-auto mb-8 max-w-[600px] text-sm font-medium leading-relaxed text-white sm:text-base md:text-[15px]"
+                    style={{ textShadow: "0 1px 6px rgba(0, 0, 0, 0.8)" }}
+                  >
                     {slide.description}
                   </p>
 
@@ -85,7 +90,7 @@ function Hero() {
 
                     <a
                       href="/live"
-                      className="inline-flex min-w-[130px] items-center justify-center gap-2 rounded-full border border-[#a47b31] bg-[#a47b31] px-6 py-2.5 text-sm font-medium text-white transition duration-300 hover:bg-[#896324]"
+                      className="inline-flex min-w-[130px] items-center justify-center gap-2 rounded-full border border-[#a47b31] bg-[#a47b31] px-6 py-2.5 text-sm font-medium text-white shadow-md transition duration-300 hover:bg-[#896324]"
                     >
                       <Play size={15} fill="currentColor" />
                       Watch Live
@@ -93,7 +98,7 @@ function Hero() {
 
                     <a
                       href="/visit"
-                      className="inline-flex min-w-[130px] items-center justify-center rounded-full border border-[#a47b31] bg-white px-6 py-2.5 text-sm font-medium text-[#956d29] transition duration-300 hover:bg-[#a47b31] hover:text-white"
+                      className="inline-flex min-w-[130px] items-center justify-center rounded-full border border-[#a47b31] bg-white px-6 py-2.5 text-sm font-medium text-[#956d29] shadow-md transition duration-300 hover:bg-[#a47b31] hover:text-white"
                     >
                       Plan a Visit
                     </a>
@@ -133,8 +138,9 @@ function Hero() {
 
         .slick-dots li button:before {
           color: white;
-          opacity: 0.55;
+          opacity: 0.7;
           font-size: 9px;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .slick-dots li.slick-active button:before {
@@ -156,6 +162,8 @@ function Hero() {
         .slick-next:before {
           color: white;
           font-size: 25px;
+          opacity: 0.9;
+          text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
         }
 
         @media (max-width: 640px) {

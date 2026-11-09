@@ -86,21 +86,21 @@ const departmentsData = [
 
 export default function Department() {
   return (
-    <section className="w-full mx-auto px-12 py-16 bg-[#faf9f6] font-sans text-[#1e293b]">
+    <section className="w-full mx-auto px-4 sm:px-12 py-12 md:py-16 bg-[#faf9f6] font-sans text-[#1e293b]">
       {/* Header Title */}
-      <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1e293b] tracking-tight mb-12">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#1e293b] tracking-tight mb-8 sm:mb-12">
         Our Departments
       </h2>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6 md:gap-8">
         {departmentsData.map((dept) => (
           <div
             key={dept.id}
-            className="border border-gray-300 bg-white p-5 flex flex-col justify-between shadow-sm"
+            className="border border-gray-300 bg-white overflow-hidden flex flex-col justify-between shadow-sm"
           >
-            {/* Department Image */}
-            <div className="w-full aspect-[16/10] bg-gray-100 overflow-hidden mb-6">
+            {/* Department Image - Full Width across the top */}
+            <div className="w-full aspect-[16/10] bg-gray-100 overflow-hidden">
               <img
                 src={dept.image}
                 alt={dept.name}
@@ -108,23 +108,23 @@ export default function Department() {
               />
             </div>
 
-            {/* Department Content */}
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-2xl font-serif text-[#1e293b] mb-3">
+            {/* Department Content - with padding inside */}
+            <div className="flex flex-col flex-grow p-3 sm:p-6">
+              <h3 className="text-lg sm:text-2xl font-serif text-[#1e293b] mb-1.5 sm:mb-3">
                 {dept.name}
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-6">
                 {dept.description}
               </p>
 
               {/* Lead & Contact Footer */}
-              <div className="mt-auto text-xs text-gray-500 space-y-1">
+              <div className="mt-auto text-[10px] sm:text-xs text-gray-500 space-y-0.5 sm:space-y-1">
                 <p>
                   <span className="font-normal">Lead:</span> {dept.lead}
                 </p>
                 <a
                   href={`mailto:${dept.email}`}
-                  className="block hover:underline text-gray-500"
+                  className="block hover:underline text-gray-500 truncate"
                 >
                   {dept.email}
                 </a>
